@@ -26,22 +26,22 @@ public class Tree {
             root = n;
         } else {
             TreeNode cb = root;
-            
-            while (true) {              
+
+            while (true) {
                 if (data < cb.getData()) {
 //                    cb = cb.getLeft();
                     if (cb.getLeft() == null) {
                         cb.setLeft(n);
                         break;
-                    }else{
-                       cb=  cb.getLeft();
+                    } else {
+                        cb = cb.getLeft();
                     }
                 } else {
 //                    cb = cb.getRight();
                     if (cb.getRight() == null) {
                         cb.setRight(n);
                         break;
-                    }else{
+                    } else {
                         cb = cb.getRight();
                     }
                 }
@@ -60,7 +60,15 @@ public class Tree {
                 x = x.getRight();
             }
         }
-        System.out.println(" "+root);
+//        while (x != null) {
+//            if (x.getData() == key) {
+//                return x;
+//            } else if (x.getData() > key) {
+//                x = x.getLeft();
+//            } else {
+//                x = x.getRight();
+//            }
+//        }
         return null;
     }
 
@@ -72,4 +80,7 @@ public class Tree {
         this.root = root;
     }
 
+//    public String toString() {
+//
+//    }
 }
