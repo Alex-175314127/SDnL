@@ -34,11 +34,20 @@ public class Main {
         t.insert(42);
         t.insert(21);
         t.insert(38);
-        int vaule = 21;
-        TreeNode found = t.Search(vaule);
+        t.insert(27);
+        t.insert(71);
+        t.insert(82);
+        t.insert(55);
+        t.insert(63);
+        t.insert(6);
+        t.insert(2);
+        t.insert(40);
+        t.insert(12);
+        int key = 21;
+        TreeNode found = t.Search(key);
         if (found != null) {
-            JOptionPane.showMessageDialog(null, "Data "+vaule+" Found in Tree","Message",JOptionPane.PLAIN_MESSAGE,icon2);
-            System.out.println(" Found "+vaule+" in BST"); 
+            JOptionPane.showMessageDialog(null, "Data "+key+" Found in Tree","Message",JOptionPane.PLAIN_MESSAGE,icon2);
+            System.out.println(" Found "+key+" in BST"); 
         }else{
           JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.PLAIN_MESSAGE, icon);
             throw  e;
