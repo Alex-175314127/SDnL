@@ -29,7 +29,6 @@ public class Tree {
 
             while (true) {
                 if (data < cb.getData()) {
-//                    cb = cb.getLeft();
                     if (cb.getLeft() == null) {
                         cb.setLeft(n);
                         break;
@@ -37,7 +36,6 @@ public class Tree {
                         cb = cb.getLeft();
                     }
                 } else {
-//                    cb = cb.getRight();
                     if (cb.getRight() == null) {
                         cb.setRight(n);
                         break;
@@ -60,15 +58,6 @@ public class Tree {
                 x = x.getRight();
             }
         }
-//        while (x != null) {
-//            if (x.getData() == key) {
-//                return x;
-//            } else if (x.getData() > key) {
-//                x = x.getLeft();
-//            } else {
-//                x = x.getRight();
-//            }
-//        }
         return null;
     }
 
@@ -79,8 +68,41 @@ public class Tree {
     public void setRoot(TreeNode root) {
         this.root = root;
     }
+    
+    public void preOrder(){
+        preOrder(root);
+    }
+    
+    public void preOrder(TreeNode x){
+        if (x != null) {
+            System.out.print(" "+x.getData());
+            preOrder(x.getLeft());
+            preOrder(x.getRight());
+        }
+    }
+    
+    public void inOrder(){
+    inOrder(root);
+    }
+    
+    public void inOrder(TreeNode xx){
+        if(xx != null){
+            inOrder(xx.getLeft());
+            System.out.print(" "+xx.getData());
+            inOrder(xx.getRight());
+        }
+    }
+    
+    public void postOrder(){
+        postOrder(root);
+    }
+    
+    public void postOrder(TreeNode xxx){
+        if (xxx != null) {
+            postOrder(xxx.getLeft());
+            postOrder(xxx.getRight());
+            System.out.print(" "+xxx.getData());
+        }
+    }
 
-//    public String toString() {
-//
-//    }
 }
