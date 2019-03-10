@@ -44,9 +44,9 @@ public class Main {
             System.out.println("Data not Found");
         }
         
-        System.out.print(" preOrder : ");t.preOrder();
-        System.out.print("\n inOreder : ");t.inOrder();
-        System.out.print("\n postOrder : ");t.postOrder(); 
+        System.out.print(" preOrder : ");t.preOrderTraversal();
+        System.out.print("\n inOreder : ");t.inOrderTraversal();
+        System.out.print("\n postOrder : ");t.postOrderTraversal();
         System.out.println("");
         
         

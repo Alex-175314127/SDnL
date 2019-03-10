@@ -69,38 +69,38 @@ public class Tree {
         this.root = root;
     }
     
-    public void preOrder(){
-        preOrder(root);
+    public void preOrderTraversal(){
+        preOrderHelper(root);
     }
     
-    public void preOrder(TreeNode x){
+    public void preOrderHelper(TreeNode x){
         if (x != null) {
             System.out.print(" "+x.getData());
-            preOrder(x.getLeft());
-            preOrder(x.getRight());
+            preOrderHelper(x.getLeft());
+            preOrderHelper(x.getRight());
         }
     }
     
-    public void inOrder(){
-    inOrder(root);
+    public void inOrderTraversal(){
+    inOrderHelper(root);
     }
     
-    public void inOrder(TreeNode xx){
+    public void inOrderHelper(TreeNode xx){
         if(xx != null){
-            inOrder(xx.getLeft());
+            inOrderHelper(xx.getLeft());
             System.out.print(" "+xx.getData());
-            inOrder(xx.getRight());
+            inOrderHelper(xx.getRight());
         }
     }
     
-    public void postOrder(){
-        postOrder(root);
+    public void postOrderTraversal(){
+        postOrderHelper(root);
     }
     
-    public void postOrder(TreeNode xxx){
+    public void postOrderHelper(TreeNode xxx){
         if (xxx != null) {
-            postOrder(xxx.getLeft());
-            postOrder(xxx.getRight());
+            postOrderHelper(xxx.getLeft());
+            postOrderHelper(xxx.getRight());
             System.out.print(" "+xxx.getData());
         }
     }
