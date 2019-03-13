@@ -105,4 +105,27 @@ public class Tree {
         }
     }
 
+    public void Delete(int del){
+        boolean a = false;
+        TreeNode x = root;
+        
+        while (x != null) {
+            if (x.getData() == del) {
+                a = true;
+                break;
+            }else if(x.getLeft() != null && del < x.getData()){
+                x = x.getLeft();
+            }else if(x.getRight() != null && del > x.getData()) {
+                x = x.getRight();
+            }else{
+                a = false;
+                break;
+            }
+        }
+        if(!a){
+            System.out.println("Node tidak ada");
+        }else{
+            
+        }
+    }
 }

@@ -35,13 +35,13 @@ public class Main {
         t.insert(40);
         t.insert(12);
         
-        int key = 22;
+        int key = 38;
         TreeNode found; 
         found = t.Search(key);
         if (found != null) {
             System.out.println("Data "+key+" Found in BST");
         }else{
-            System.out.println("Data not Found");
+            System.out.println("Data "+key+" not Found");
         }
         
         System.out.print(" preOrder : ");t.preOrderTraversal();
