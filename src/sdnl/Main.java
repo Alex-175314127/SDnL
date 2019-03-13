@@ -48,6 +48,8 @@ public class Main {
         System.out.print("\n inOreder : ");t.inOrderTraversal();
         System.out.print("\n postOrder : ");t.postOrderTraversal();
         System.out.println("");
+        System.out.print("depth : ");t.depth(40);
+        System.out.print("height : ");t.height(40);
         
         
 //        ImageIcon icon = new ImageIcon("b.png");

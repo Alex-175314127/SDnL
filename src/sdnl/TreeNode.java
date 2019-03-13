@@ -43,4 +43,22 @@ public class TreeNode {
     public void setRight(TreeNode right) {
         this.right = right;
     }
+    
+    public void insert(int a){
+        if (a < getData()) {
+            if (left == null) {
+                left = new TreeNode(a);
+            }else{
+                getLeft().insert(a);
+                
+            }
+        }else{
+            if (right == null) {
+                right = new TreeNode(a);
+            }else{
+                getRight().insert(a);
+                
+            }
+        }
+    }
 }

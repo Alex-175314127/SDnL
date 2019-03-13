@@ -25,25 +25,26 @@ public class Tree {
         if (root == null) {
             root = n;
         } else {
-            TreeNode cb = root;
+//            TreeNode cb = root;
+             getRoot().insert(data);
 
-            while (true) {
-                if (data < cb.getData()) {
-                    if (cb.getLeft() == null) {
-                        cb.setLeft(n);
-                        break;
-                    } else {
-                        cb = cb.getLeft();
-                    }
-                } else {
-                    if (cb.getRight() == null) {
-                        cb.setRight(n);
-                        break;
-                    } else {
-                        cb = cb.getRight();
-                    }
-                }
-            }
+//            while (true) {
+//                if (data < cb.getData()) {
+//                    if (cb.getLeft() == null) {
+//                        cb.setLeft(n);
+//                        break;
+//                    } else {
+//                        cb = cb.getLeft();
+//                    }
+//                } else {
+//                    if (cb.getRight() == null) {
+//                        cb.setRight(n);
+//                        break;
+//                    } else {
+//                        cb = cb.getRight();
+//                    }
+//                }
+//            }
         }
     }
 
@@ -105,27 +106,60 @@ public class Tree {
         }
     }
 
-    public void Delete(int del){
-        boolean a = false;
-        TreeNode x = root;
-        
+//    public void Delete(int del){
+//        boolean a = false;
+//        TreeNode x = root;
+//        
+//        while (x != null) {
+//            if (x.getData() == del) {
+//                a = true;
+//                break;
+//            }else if(x.getLeft() != null && del < x.getData()){
+//                x = x.getLeft();
+//            }else if(x.getRight() != null && del > x.getData()) {
+//                x = x.getRight();
+//            }else{
+//                a = false;
+//                break;
+//            }
+//        }
+//        if(!a){
+//            System.out.println("Node tidak ada");
+//        }else{
+//            
+//        }
+//    }
+    public void depth(int d){
+     TreeNode x = root;
+     int y= 0;
         while (x != null) {
-            if (x.getData() == del) {
-                a = true;
+            if (x.getData() == d) { 
+                System.out.println(" "+y);
                 break;
-            }else if(x.getLeft() != null && del < x.getData()){
-                x = x.getLeft();
-            }else if(x.getRight() != null && del > x.getData()) {
+            } else if (x.getData() > d) {
+                x= x.getLeft();
+                y++;
+            } else {
                 x = x.getRight();
-            }else{
-                a = false;
-                break;
+                y++;
             }
         }
-        if(!a){
-            System.out.println("Node tidak ada");
-        }else{
-            
+    }
+    
+    public void height(int h){
+         TreeNode x = root;
+     int y= 1;
+        while (x != null) {
+            if (x.getData() == h) { 
+                System.out.println(" "+y);
+                break;
+            } else if (x.getData() > h) {
+                x= x.getLeft();
+                y++;
+            } else {
+                x = x.getRight();
+                y++;
+            }
         }
     }
 }
