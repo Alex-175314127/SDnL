@@ -50,7 +50,6 @@ public class TreeNode {
                 left = new TreeNode(a);
             }else{
                 getLeft().insert(a);
-                
             }
         }else{
             if (right == null) {
@@ -60,5 +59,11 @@ public class TreeNode {
                 
             }
         }
+    }
+    public boolean Leaft() {
+        if (this.left == null && this.right == null) {
+            return true;
+        }
+        return false;
     }
 }

@@ -25,26 +25,7 @@ public class Tree {
         if (root == null) {
             root = n;
         } else {
-//            TreeNode cb = root;
              getRoot().insert(data);
-
-//            while (true) {
-//                if (data < cb.getData()) {
-//                    if (cb.getLeft() == null) {
-//                        cb.setLeft(n);
-//                        break;
-//                    } else {
-//                        cb = cb.getLeft();
-//                    }
-//                } else {
-//                    if (cb.getRight() == null) {
-//                        cb.setRight(n);
-//                        break;
-//                    } else {
-//                        cb = cb.getRight();
-//                    }
-//                }
-//            }
         }
     }
 
@@ -106,29 +87,58 @@ public class Tree {
         }
     }
 
-//    public void Delete(int del){
-//        boolean a = false;
-//        TreeNode x = root;
-//        
-//        while (x != null) {
-//            if (x.getData() == del) {
-//                a = true;
-//                break;
-//            }else if(x.getLeft() != null && del < x.getData()){
-//                x = x.getLeft();
-//            }else if(x.getRight() != null && del > x.getData()) {
-//                x = x.getRight();
-//            }else{
-//                a = false;
-//                break;
-//            }
-//        }
-//        if(!a){
-//            System.out.println("Node tidak ada");
-//        }else{
-//            
-//        }
-//    }
+    public TreeNode Delete(int key){
+           TreeNode x = Search(key);    
+        TreeNode parent = getCurrnet(key); 
+        
+        if (x == null) { 
+            return null;     
+        } else if (x == root) { 
+            if (x.Leaft()) { 
+                root = null;       
+            }
+            if (root.getRight() == null) { 
+                root = x.getLeft();   
+            } else if (root.getLeft() == null) { 
+                root = x.getRight();   
+            }
+        } else if (x.getData() < parent.getData()) {      
+            if (x.Leaft()) { 
+                parent.setLeft(null); 
+            } else if (x.getRight() == null) { 
+                parent.setLeft(x.getLeft()); 
+            } else { 
+                parent.setLeft(x.getRight()); 
+            }
+        } else if (x.getData() > parent.getData()) {           
+            if (x.Leaft()) { 
+                parent.setRight(null); 
+            } else if (x.getLeft() == null) { 
+                parent.setRight(x.getLeft()); 
+            } else { 
+                parent.setRight(x.getRight()); 
+            }
+        }
+        return x; 
+    }
+    
+     public TreeNode getCurrnet(int key) {
+        TreeNode bantu = root;
+        TreeNode parent = null;
+        while (bantu != null) {
+            if (bantu.getData() == key) {
+                return parent;
+            } else if (bantu.getData() > key) {
+                parent = bantu;
+                bantu = bantu.getLeft();
+            } else {
+                parent = bantu;
+                bantu = bantu.getRight();
+            }
+        }
+        return null;
+    }
+    
     public void depth(int d){
      TreeNode x = root;
      int y= 0;
@@ -162,4 +172,34 @@ public class Tree {
             }
         }
     }
-}
+    
+    public void leaf(TreeNode loot){
+        
+        if (loot == null) {
+            return;
+        }
+         if(loot.getLeft() == null && loot.getRight() == null){
+            System.out.println("leaf : "+loot.getData());
+            return;
+        } 
+         leaf(loot.getLeft());
+         leaf(loot.getRight());
+    }
+    
+    public void descendant(TreeNode x,int des){
+   
+        while (x != null) {
+            if (x.getData() == des ) {
+                descendant(x.getLeft(), des);
+                descendant(x.getRight(), des);
+                System.out.println(" "+x.getData());
+                break;
+            } else if (x.getData() > des) {
+                x = x.getLeft();
+            } else {
+                x = x.getRight();
+            }
+        }
+    }
+    
+    }
