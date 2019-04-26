@@ -36,6 +36,7 @@ public class Main {
         t.insert(2);
         t.insert(40);
         t.insert(12);
+       
 
         System.out.print(" preOrder : ");
         t.preOrderTraversal();
@@ -45,9 +46,9 @@ public class Main {
         t.postOrderTraversal();
 
         System.out.print("\n depth : ");
-        t.depth(7);
+        t.depth(40);
         System.out.print(" height : ");
-        t.height(7);
+        t.height(40);
         System.out.println("");
         System.out.print("cari data : ");
 
@@ -62,9 +63,9 @@ public class Main {
 
         System.out.print("Hapus data : ");
         int key2 = s.nextInt();
-        if (t.Delete(key2) != null) {
-            t.Delete(key2);
-            System.out.println("DATA SETELAH MENGHAPUS NILAI " + key + ":");
+        if (t.Delete2(key2) != null) {
+            t.Delete2(key2);
+            System.out.println("Data setelah nilai " + key + " dihapus:");
             System.out.print("preOrder  : ");
             t.preOrderTraversal();
             System.out.println();

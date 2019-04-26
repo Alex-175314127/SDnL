@@ -60,7 +60,7 @@ public class TreeNode {
             }
         }
     }
-    public boolean Leaft() {
+    public boolean Leaf() {
         if (this.left == null && this.right == null) {
             return true;
         }
