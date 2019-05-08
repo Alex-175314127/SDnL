@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package StcakTree;
+package StackTree;
 
 /**
  *
@@ -20,7 +20,7 @@ class StackTree {
         
     }
     
-    public TreeNode pop(TreeNode del){
+    public TreeNode pop(){
         return null;
     }
     
