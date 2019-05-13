@@ -10,25 +10,25 @@ package StackTree;
  * @author basisa19
  */
 class StackTree {
-    ListTree stackListTree;
+    private ListTree stackListTree;
 
     public StackTree() {
-        
+        stackListTree = new ListTree();
     }
     
     public void push(TreeNode add){
-        
+        stackListTree.insertAtFront(add);
     }
     
     public TreeNode pop(){
-        return null;
+        return stackListTree.removeFromFront();
     }
     
     public boolean isEmpty(){
-        return false;
+        return stackListTree.isEmpty();
     }
     public void print (){
-        
+        stackListTree.print();
     }
 
    
