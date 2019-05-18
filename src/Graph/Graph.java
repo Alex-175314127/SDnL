@@ -59,7 +59,7 @@ public class Graph {
         for (int i = 0; i < adjencyVertex.length; i++) {
             for (int j = 0; j < adjencyVertex.length; j++) {
                 if (adjencyVertex[i][j] != -1 && adjencyVertex[i][j] != 0) {
-                    System.out.println(vertexList[i].getLabel()+" terhubungke "+vertexList[j].getLabel()+" dengan bobot "+adjencyVertex[i][j]);
+                    System.out.println(vertexList[i].getLabel()+" terhubungke "+vertexList[j].getLabel()+" dengan beban "+adjencyVertex[i][j]);
                 }
             }
         }
