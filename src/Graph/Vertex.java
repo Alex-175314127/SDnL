@@ -13,10 +13,17 @@ public class Vertex {
     private char label;
     private boolean flagVisited;
 
-    public Vertex() {
+    public Vertex(char label) {
+        this.label = label;
+    }
+
+    public char getLabel() {
+        return label;
+    }
+
+    public void setLabel(char label) {
+        this.label = label;
     }
     
-    public void Vertex(char ver){
-        this.label = ver;
-    }
+  
 }
