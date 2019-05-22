@@ -10,20 +10,11 @@ package Graph;
  * @author BASISA13
  */
 public class Vertex {
-    private char label;
-    private boolean flagVisited;
+    char label;
+    boolean flagVisited;
 
     public Vertex(char label) {
         this.label = label;
+       flagVisited = false;
     }
-
-    public char getLabel() {
-        return label;
-    }
-
-    public void setLabel(char label) {
-        this.label = label;
-    }
-    
-  
 }
