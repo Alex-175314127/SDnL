@@ -10,6 +10,7 @@ package Graph;
 
 
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 
@@ -120,6 +121,38 @@ public class Graph {
                     }
                 }           
             }
+        }
+    
+    public ArrayList<Edge> getPrimEdges(){
+        ArrayList<Edge> primEdges = new ArrayList<>();
+        ArrayList<Integer> primVertex = new ArrayList(0);            
+//int seed = 0;
+        primVertex.add(0); 
+        vertexList[0].flagVisited =true;
+        
+        while (primVertex.size() < vertexList.length) {
+           int tempMinWeight= Integer.MAX_VALUE;
+           int  tempMinIndekVertexI=-1;
+           int  tempMinIndekVertexJ= -1;
+            for (int i = 0; i < primVertex.size(); i++) {
+                for (int j = 0; j < countVertex; j++) {
+                    if (adjencyVertex[primVertex.get(i)][j] != 0 && vertexList[j].flagVisited == false
+                            && adjencyVertex[primVertex.get(i)][j] < tempMinWeight) {
+                        tempMinIndekVertexI = i;
+                        tempMinIndekVertexJ = j;
+                        tempMinWeight = adjencyVertex[i][j];
+                    }
+                }
+            }
+                primVertex.add(tempMinIndekVertexJ);
+                vertexList[tempMinIndekVertexJ].flagVisited =true;
+                Edge edge = new Edge();
+                edge.setVertexA(tempMinIndekVertexI);
+                edge.setVertexB(tempMinIndekVertexJ);
+                edge.setWeight(adjencyVertex[tempMinIndekVertexI][tempMinIndekVertexJ]);
+                primEdges.add(edge);
+            }
+        return primEdges;
         }
     }
 

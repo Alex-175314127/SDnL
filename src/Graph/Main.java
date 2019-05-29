@@ -39,5 +39,7 @@ public class Main {
         System.out.println("Matriks Information");
         System.out.println(gp.toString());
         gp.show();
+        
+        gp.getPrimEdges();
     }
 }
