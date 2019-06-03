@@ -125,32 +125,36 @@ public class Graph {
     
     public ArrayList<Edge> getPrimEdges(){
         ArrayList<Edge> primEdges = new ArrayList<>();
-        ArrayList<Integer> primVertex = new ArrayList(0);            
-//int seed = 0;
-        primVertex.add(0); 
-        vertexList[0].flagVisited =true;
+        ArrayList<Integer> primVertex = new ArrayList<>();            
+        int seed = 0;
+        primVertex.add(seed); 
+        vertexList[seed].setFlagVisited(true);
         
         while (primVertex.size() < vertexList.length) {
            int tempMinWeight= Integer.MAX_VALUE;
            int  tempMinIndekVertexI=-1;
            int  tempMinIndekVertexJ= -1;
             for (int i = 0; i < primVertex.size(); i++) {
-                for (int j = 0; j < countVertex; j++) {
-                    if (adjencyVertex[primVertex.get(i)][j] != 0 && vertexList[j].flagVisited == false
+                for (int j = 0; j < vertexList.length; j++) {
+                    if (adjencyVertex[primVertex.get(i)][j] > 0
+                            && !vertexList[j].isFlagVisited()
                             && adjencyVertex[primVertex.get(i)][j] < tempMinWeight) {
-                        tempMinIndekVertexI = i;
-                        tempMinIndekVertexJ = j;
-                        tempMinWeight = adjencyVertex[i][j];
+                              tempMinWeight = adjencyVertex[primVertex.get(i)][j];
+                        tempMinIndekVertexI = primVertex.get(i);
+                        tempMinIndekVertexJ = j;              
                     }
                 }
             }
-                primVertex.add(tempMinIndekVertexJ);
-                vertexList[tempMinIndekVertexJ].flagVisited =true;
-                Edge edge = new Edge();
-                edge.setVertexA(tempMinIndekVertexI);
-                edge.setVertexB(tempMinIndekVertexJ);
-                edge.setWeight(adjencyVertex[tempMinIndekVertexI][tempMinIndekVertexJ]);
-                primEdges.add(edge);
+            primVertex.add(tempMinIndekVertexJ);
+            vertexList[tempMinIndekVertexJ].setFlagVisited(true);
+            primEdges.add(new Edge(tempMinIndekVertexI, tempMinIndekVertexJ, tempMinWeight));
+//                primVertex.add(tempMinIndekVertexJ);
+//                vertexList[tempMinIndekVertexJ].setFlagVisited(true);
+//                Edge edge = new Edge();
+//                edge.setVertexA(tempMinIndekVertexI);
+//                edge.setVertexB(tempMinIndekVertexJ);
+//                edge.setWeight(adjencyVertex[tempMinIndekVertexI][tempMinIndekVertexJ]);
+//                primEdges.add(edge);
             }
         return primEdges;
         }

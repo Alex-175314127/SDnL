@@ -17,6 +17,12 @@ public class Edge {
     public Edge() {
     }
 
+    public Edge(int vertexA, int vertexB, int weight) {
+        this.vertexA = vertexA;
+        this.vertexB = vertexB;
+        this.weight = weight;
+    }
+
     public int getVertexA() {
         return vertexA;
     }
@@ -41,5 +47,8 @@ public class Edge {
         this.weight = weight;
     }
     
-    
+    @Override
+    public String toString(){
+        return "(" +vertexA+ "," +vertexB+ ") : weight = " +weight;
+    }
 }
